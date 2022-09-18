@@ -1,24 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   print.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vzayas-s <vzayas-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/16 15:57:19 by vzayas-s          #+#    #+#             */
-/*   Updated: 2022/09/18 17:05:40 by vzayas-s         ###   ########.fr       */
+/*   Created: 2022/09/17 16:50:21 by vzayas-s          #+#    #+#             */
+/*   Updated: 2022/09/18 17:04:48 by vzayas-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
-int	main(void)
+int	print_struct(t_control *control)
 {
-	t_control	control;
-
-	start_strt(&control);
-	check_map_frm(&control);
-	check_map_atrb(&control);
-	check_error(&control);
-	print_struct(&control);
+	printf("Player:(%d), Collectable:(%d), Exit:(%d)\n", control->p, control->c, control->e);
+	printf("mapa:\n %s", *control->map);
+	return (0);
 }

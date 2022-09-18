@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   start_struct.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vzayas-s <vzayas-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/16 15:57:19 by vzayas-s          #+#    #+#             */
-/*   Updated: 2022/09/18 17:05:40 by vzayas-s         ###   ########.fr       */
+/*   Created: 2022/09/17 12:10:30 by vzayas-s          #+#    #+#             */
+/*   Updated: 2022/09/17 19:33:41 by vzayas-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
-int	main(void)
+int	start_strt(t_control *control)
 {
-	t_control	control;
-
-	start_strt(&control);
-	check_map_frm(&control);
-	check_map_atrb(&control);
-	check_error(&control);
-	print_struct(&control);
+	control->width = 0;
+	control->height = 0;
+	control->error = 0;
+	control->p = 0;
+	control->c = 0;
+	control->e = 0;
+	return (0);
 }

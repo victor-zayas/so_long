@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   putstr_fd.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vzayas-s <vzayas-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/16 15:57:19 by vzayas-s          #+#    #+#             */
-/*   Updated: 2022/09/18 17:05:40 by vzayas-s         ###   ########.fr       */
+/*   Created: 2022/09/17 17:15:46 by vzayas-s          #+#    #+#             */
+/*   Updated: 2022/09/17 17:16:01 by vzayas-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
-int	main(void)
+void	ft_putstr_fd(char *s, int fd)
 {
-	t_control	control;
+	int	i;
 
-	start_strt(&control);
-	check_map_frm(&control);
-	check_map_atrb(&control);
-	check_error(&control);
-	print_struct(&control);
+	if (s == NULL || fd < 0)
+		return ;
+	i = 0;
+	while (s[i])
+	{
+		write(fd, &s[i], 1);
+		i++;
+	}
 }

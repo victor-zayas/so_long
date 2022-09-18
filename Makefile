@@ -6,7 +6,7 @@
 #    By: vzayas-s <vzayas-s@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/16 15:59:46 by vzayas-s          #+#    #+#              #
-#    Updated: 2022/09/16 19:26:47 by vzayas-s         ###   ########.fr        #
+#    Updated: 2022/09/17 17:17:46 by vzayas-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME = so_long
 
 # COMPILATION #
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -g3 #-fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -g3 -fsanitize=address
 RM = /bin/rm -rf
 
 # OBJS #
@@ -25,11 +25,14 @@ OBJS = $(SRCS:.c=.o)
 INCLUDE = -I so_long.h
 
 # SRCS #
-SRCS = so_long.c		\
-	   check_map.c		\
-	   libft/split.c	\
-	   libft/substr.c	\
-	   libft/strlen.c	\
+SRCS = so_long.c			\
+	   src/check_map.c		\
+	   src/start_struct.c	\
+	   src/print.c			\
+	   libft/split.c		\
+	   libft/substr.c		\
+	   libft/strlen.c		\
+	   libft/putstr_fd.c	\
 
 # MAKEFILE ART #
 # COLORS #
@@ -65,7 +68,7 @@ export SO_LONG
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(INCLUDE)
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(INCLUDE)
 	echo "$(BLUE)༺ library created༻$(END)"
 	echo "$$SO_LONG"
 

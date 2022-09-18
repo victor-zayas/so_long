@@ -6,7 +6,7 @@
 /*   By: vzayas-s <vzayas-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/16 19:02:43 by vzayas-s          #+#    #+#             */
-/*   Updated: 2022/09/16 19:06:08 by vzayas-s         ###   ########.fr       */
+/*   Updated: 2022/09/17 15:32:15 by vzayas-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,10 @@
 
 int	ft_strlen(const char *str)
 {
-	int	count;
+	int	i;
 
-	count = 0;
-	while (str[count])
-	{
-		count++;
-	}
-	return (count);
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
 }
