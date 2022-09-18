@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vzayas-s <vzayas-s@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vzaya-s <vzaya-s@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/16 19:15:42 by vzayas-s          #+#    #+#             */
-/*   Updated: 2022/09/18 17:06:17 by vzayas-s         ###   ########.fr       */
+/*   Updated: 2022/09/18 22:47:12 by vzaya-s          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,16 @@ int	check_map_frm(t_control *control)
 		exit(0);
 	}
 	return (0);
+}
+
+void check_fd(int fd)
+{
+	if (fd < 0 || fd == 2)
+	{
+		close(fd);
+		ft_putstr_fd("Error: Invalid fd\n", 2);
+		exit(0);
+	}
 }
 
 int	check_error(t_control *control)

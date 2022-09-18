@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vzayas-s <vzayas-s@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vzaya-s <vzaya-s@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/16 16:04:28 by vzayas-s          #+#    #+#             */
-/*   Updated: 2022/09/17 19:33:33 by vzayas-s         ###   ########.fr       */
+/*   Updated: 2022/09/18 22:48:21 by vzaya-s          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ typedef struct s_control
 	int		width;
 	int		height;
 	int		error;
+	int		fd;
 	int		p;
 	int		c;
 	int		e;
@@ -41,5 +42,6 @@ int		print_struct(t_control *map);
 int		check_map_atrb(t_control *map);
 int		check_map_frm(t_control *map);
 int		check_error(t_control *map);
+void	check_fd(int fd);
 
 #endif
