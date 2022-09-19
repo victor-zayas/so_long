@@ -3,145 +3,114 @@
 /*                                                        :::      ::::::::   */
 /*   check_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vzaya-s <vzaya-s@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vzayas-s <vzayas-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/16 19:15:42 by vzayas-s          #+#    #+#             */
-/*   Updated: 2022/09/18 22:47:12 by vzaya-s          ###   ########.fr       */
+/*   Updated: 2022/09/19 15:57:07 by vzayas-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-static int	file_size(char *path)
-{
-	int		rd;
-	int		fd;
-	int		i;
-	char	*buffer;
-
-	i = 0;
-	buffer = malloc(0);
-	fd = open(path, O_RDONLY);
-	if (fd < 0 || fd == 2)
-		return (0);
-	rd = 1;
-	while (rd > 0)
-	{
-		rd = read(fd, buffer, 1);
-		if (rd < 0)
-			return (0);
-		i++;
-	}
-	close(fd);
-	return (i);
-}
-
-static	char	**split_map(t_control *control)
-{
-	char	*aux;
-	int		fd;
-
-	aux = malloc(file_size("map.ber"));
-	fd = open("map.ber", O_RDONLY);
-	read(fd, aux, file_size("map.ber"));
-	close(fd);
-	fd = open("map.ber", O_RDONLY);
-	aux[file_size("map.ber") - 1] = 0;
-	control->map = ft_split(aux, '\n');
-	close(fd);
-	return (control->map);
-}
-
-int	check_map_atrb(t_control *control)
+static	void	check_map_wall(t_control *control)
 {
 	int		i;
 	int		j;
-	char	**aux;
 
 	i = 0;
-	aux = split_map(control);
-	while (aux[i])
+	//control->map = split_map(control);
+	while (control->map[i])
 	{
 		j = 0;
-		while (aux[i][j])
+		while (control->map[i][j])
 		{
-			if (aux[i][j] == 'P')
-				control->p++;
-			if (aux[i][j] == 'C')
-				control->c++;
-			if (aux[i][j] == 'E')
-				control->e++;
-			j++;
-		}
-		i++;
-	}
-	return (1);
-}
-
-int	check_map_frm(t_control *control)
-{
-	int		i;
-	int		j;
-	char	**aux;
-
-	i = 0;
-	aux = split_map(control);
-	while (aux[i])
-	{
-		j = 0;
-		while (aux[i][j])
-		{
-			if (aux[0][j] != '1')
+			if (control->map[i][0] != '1')
+			{
+				ft_putstr_fd("Error: the map must be surrounded by walls\n", 2);
+				exit(0);
+			}
+			if (control->map[i][control->width - 1] != '1')
 			{
 				ft_putstr_fd("Error: the map must be surrounded by walls\n", 2);
 				exit(0);
 			}
 			j++;
-			control->width = j;
 		}
 		i++;
-		control->height = i;
 	}
-	printf("H: (%d) W: (%d)\n", control->height, control->width);
+}
+
+static	void	check_map_frm(t_control *control)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	//control->map = split_map(control);
+	while (control->map[i])
+	{
+		j = 0;
+		while (control->map[i][j])
+			j++;
+		i++;
+	}
+	control->height = i;
+	control->width = j;
 	if (control->height == control->width)
 	{
 		ft_putstr_fd("Error: map isn't rectangular\n", 2);
 		exit(0);
 	}
-	return (0);
 }
 
-void check_fd(int fd)
+static	void	check_map_atrb(t_control *control)
 {
-	if (fd < 0 || fd == 2)
+	int		i;
+	int		j;
+
+	i = 0;
+	//control->map = split_map(control);
+	while (control->map[i])
 	{
-		close(fd);
-		ft_putstr_fd("Error: Invalid fd\n", 2);
-		exit(0);
+		j = 0;
+		while (control->map[i][j])
+		{
+			if (control->map[i][j] == 'P')
+				control->p++;
+			if (control->map[i][j] == 'C')
+				control->c++;
+			if (control->map[i][j] == 'E')
+				control->e++;
+			j++;
+		}
+		i++;
 	}
 }
 
-int	check_error(t_control *control)
+void	check_map(t_control *control)
 {
-	if (control->p != 1)
+	int	i;
+	int	j;
+
+	check_map_frm(control);
+	check_map_wall(control);
+	check_map_atrb(control);
+	i = 0;
+	//control->map = split_map(control);
+	while (control->map[i])
 	{
-		ft_putstr_fd("Error: there must be only 1 player\n", 2);
-		exit(0);
+		j = 0;
+		while (control->map[i][j])
+		{
+			if (control->map[i][j] != 'P' && control->map[i][j] != 'C'
+			&& control->map[i][j] != 'E' && control->map[i][j] != '0'
+			&& control->map[i][j] != '1' && control->map[i][j] != '\n')
+			{
+				ft_putstr_fd("Error: Invalid character in map\n", 2);
+				exit(0);
+			}
+			j++;
+		}
+		i++;
 	}
-	if (control->c < 1)
-	{
-		ft_putstr_fd("Error: there must be at least 1 collectable\n", 2);
-		exit(0);
-	}
-	if (control->e < 1)
-	{
-		ft_putstr_fd("Error: there must be at least 1 exit\n", 2);
-		exit(0);
-	}
-	if (control->p != 1 && control->c < 1 && control->e < 1)
-	{
-		ft_putstr_fd("Error: invalid map\n", 2);
-		exit(0);
-	}
-	return (0);
 }

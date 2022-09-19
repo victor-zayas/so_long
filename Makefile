@@ -6,7 +6,7 @@
 #    By: vzayas-s <vzayas-s@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/16 15:59:46 by vzayas-s          #+#    #+#              #
-#    Updated: 2022/09/17 17:17:46 by vzayas-s         ###   ########.fr        #
+#    Updated: 2022/09/19 11:20:21 by vzayas-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,8 +26,9 @@ INCLUDE = -I so_long.h
 
 # SRCS #
 SRCS = so_long.c			\
-	   src/check_map.c		\
 	   src/start_struct.c	\
+	   src/check_map.c		\
+	   src/check_error.c	\
 	   src/print.c			\
 	   libft/split.c		\
 	   libft/substr.c		\
@@ -44,10 +45,11 @@ BLUE=\033[0;34m
 MAG=\033[0;35m
 CYAN=\033[0;36m
 WHITE=\033[0;37m
+PAPYRUS=\033[38;5;223m
 END=\033[0m
 
 define SO_LONG
-
+$(PAPYRUS)
    ▄████████  ▄██████▄        ▄█        ▄██████▄  ███▄▄▄▄      ▄██████▄  
   ███    ███ ███    ███      ███       ███    ███ ███▀▀▀██▄   ███    ███ 
   ███    █▀  ███    ███      ███       ███    ███ ███   ███   ███    █▀  
@@ -57,7 +59,7 @@ define SO_LONG
    ▄█    ███ ███    ███      ███▌    ▄ ███    ███ ███   ███   ███    ███ 
  ▄████████▀   ▀██████▀       █████▄▄██  ▀██████▀   ▀█   █▀    ████████▀  
                              ▀                                           
-
+$(END)
 endef
 export SO_LONG	
 

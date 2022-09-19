@@ -1,27 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print.c                                            :+:      :+:    :+:   */
+/*   strlcpy.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vzayas-s <vzayas-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/17 16:50:21 by vzayas-s          #+#    #+#             */
-/*   Updated: 2022/09/19 11:56:44 by vzayas-s         ###   ########.fr       */
+/*   Created: 2022/09/19 10:07:05 by vzayas-s          #+#    #+#             */
+/*   Updated: 2022/09/19 10:07:18 by vzayas-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include"../so_long.h"
 
-int	print_struct(t_control *control)
+size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
-	int	i;
+	int		count;
+	size_t	i;
 
 	i = 0;
-	while (control->map[i])
+	count = 0;
+	while (src[count] != '\0')
 	{
-		printf("%s\n", control->map[i]);
-		i++;
+		count++;
 	}
-	printf("Player:(%d), Collectable:(%d), Exit:(%d)\n", control->p, control->c, control->e);
-	return (0);
+	if (size > 0)
+	{
+		while (src[i] != '\0' && i < (size - 1))
+		{
+			dest[i] = src[i];
+			i++;
+		}
+		dest[i] = '\0';
+	}
+	return (count);
 }
