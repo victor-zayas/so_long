@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vzayas-s <vzayas-s@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vzaya-s <vzaya-s@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/16 16:04:28 by vzayas-s          #+#    #+#             */
-/*   Updated: 2022/09/19 15:58:37 by vzayas-s         ###   ########.fr       */
+/*   Updated: 2022/09/19 20:26:25 by vzaya-s          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 typedef struct s_control
 {
 	char	**map;
+	char	*name;
 	int		width;
 	int		height;
 	int		error;
