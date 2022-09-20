@@ -6,7 +6,7 @@
 /*   By: vzayas-s <vzayas-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/16 15:57:19 by vzayas-s          #+#    #+#             */
-/*   Updated: 2022/09/20 12:25:53 by vzayas-s         ###   ########.fr       */
+/*   Updated: 2022/09/20 19:46:24 by vzayas-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ static	char	**split_map(t_control *control)
 int	main(int argc, char **argv)
 {
 	t_control	control;
+	t_data		data;
 
 	if (argc == 2)
 	{
@@ -62,7 +63,7 @@ int	main(int argc, char **argv)
 		split_map(&control);
 		check_map(&control);
 		type_error(&control);
-		//check_error(&control);
+		window(&data, &control);
 		print_struct(&control);
 	}
 	else

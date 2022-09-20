@@ -6,7 +6,7 @@
 #    By: vzayas-s <vzayas-s@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/16 15:59:46 by vzayas-s          #+#    #+#              #
-#    Updated: 2022/09/20 13:05:25 by vzayas-s         ###   ########.fr        #
+#    Updated: 2022/09/20 19:48:46 by vzayas-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,7 @@ NAME = so_long
 # COMPILATION #
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -g3 -fsanitize=address
+MLX = -framework OpenGL -framework AppKit
 RM = /bin/rm -rf
 
 # OBJS #
@@ -30,6 +31,7 @@ SRCS = so_long.c			\
 	   src/check_map.c		\
 	   src/check_error.c	\
 	   src/print.c			\
+	   src/mlx_things.c		\
 	   libft/split.c		\
 	   libft/substr.c		\
 	   libft/strlen.c		\
@@ -70,12 +72,16 @@ export SO_LONG
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(INCLUDE)
+	echo "mv mlx_warnings to mlx_warnings log file ..."
+	$(MAKE) -C ./mlx/ 2> mlx_warnings
+	mv ./mlx/libmlx.a .
+	$(CC) $(CFLAGS) $(OBJS) $(INCLUDE) -L . -lmlx $(MLX) -o $(NAME)
 	echo "$(BLUE)༺ library created༻$(END)"
 	echo "$$SO_LONG"
 
 clean:
-	$(RM) $(OBJS)
+	$(MAKE) -C ./mlx/ clean 
+	$(RM) $(OBJS) mlx_warnings libmlx.a
 	echo "$(RED)༺ Objs deleted༻$(END)"
 
 fclean: clean
