@@ -6,7 +6,7 @@
 /*   By: vzayas-s <vzayas-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/16 19:15:42 by vzayas-s          #+#    #+#             */
-/*   Updated: 2022/09/19 15:57:07 by vzayas-s         ###   ########.fr       */
+/*   Updated: 2022/09/20 12:35:30 by vzayas-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ static	void	check_map_wall(t_control *control)
 	int		j;
 
 	i = 0;
-	//control->map = split_map(control);
 	while (control->map[i])
 	{
 		j = 0;
@@ -46,7 +45,6 @@ static	void	check_map_frm(t_control *control)
 	int	j;
 
 	i = 0;
-	//control->map = split_map(control);
 	while (control->map[i])
 	{
 		j = 0;
@@ -69,7 +67,6 @@ static	void	check_map_atrb(t_control *control)
 	int		j;
 
 	i = 0;
-	//control->map = split_map(control);
 	while (control->map[i])
 	{
 		j = 0;
@@ -87,6 +84,19 @@ static	void	check_map_atrb(t_control *control)
 	}
 }
 
+void	check_map_format(t_control *control)
+{
+	int		i;
+
+	i = ft_strlen(control->name);
+	if (control->name[i - 4] != '.' || control->name[i - 3] != 'b'
+		|| control->name[i - 2] != 'e' || control->name[i - 1] != 'r')
+	{
+		ft_putstr_fd("Error: invalid map format\n", 2);
+		exit(0);
+	}
+}
+
 void	check_map(t_control *control)
 {
 	int	i;
@@ -96,7 +106,6 @@ void	check_map(t_control *control)
 	check_map_wall(control);
 	check_map_atrb(control);
 	i = 0;
-	//control->map = split_map(control);
 	while (control->map[i])
 	{
 		j = 0;

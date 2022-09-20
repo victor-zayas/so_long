@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vzaya-s <vzaya-s@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vzayas-s <vzayas-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/16 16:04:28 by vzayas-s          #+#    #+#             */
-/*   Updated: 2022/09/19 20:26:25 by vzaya-s          ###   ########.fr       */
+/*   Updated: 2022/09/20 13:04:04 by vzayas-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,11 @@ void	ft_putstr_fd(char *s, int fd);
 
 //SO_LONG//
 int		start_strt(t_control *init);
-int		print_struct(t_control *map);
-//char	**split_map(t_control *control);
-void	check_map(t_control *control);
-void	check_error(t_control *control);
-void	type_error(t_control *s_control);
+void	check_map_format(t_control *control);
 void	check_fd(int fd);
+void	check_map(t_control *control);
+//void	check_error(t_control *control);
+void	type_error(t_control *s_control);
+int		print_struct(t_control *map);
 
 #endif

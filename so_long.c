@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vzaya-s <vzaya-s@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vzayas-s <vzayas-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/16 15:57:19 by vzayas-s          #+#    #+#             */
-/*   Updated: 2022/09/19 20:28:57 by vzaya-s          ###   ########.fr       */
+/*   Updated: 2022/09/20 12:25:53 by vzayas-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,11 +56,13 @@ int	main(int argc, char **argv)
 		start_strt(&control);
 		control.fd = open(argv[1], O_RDONLY);
 		control.name = argv[1];
+		printf("%s\n", control.name);
+		check_map_format(&control);
 		check_fd(control.fd);
 		split_map(&control);
 		check_map(&control);
 		type_error(&control);
-		check_error(&control);
+		//check_error(&control);
 		print_struct(&control);
 	}
 	else
