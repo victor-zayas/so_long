@@ -6,7 +6,7 @@
 /*   By: vzayas-s <vzayas-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 16:29:10 by vzayas-s          #+#    #+#             */
-/*   Updated: 2022/09/20 19:47:48 by vzayas-s         ###   ########.fr       */
+/*   Updated: 2022/09/20 20:46:08 by vzayas-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,13 @@ int	window(t_data *data, t_control *control)
 
 	y = 0;
 	mlx = mlx_init();
-	mlx_win = mlx_new_window(mlx, 1920, 1080, "Tu super vieja");
+	int igriega = 1;
+	int equis = 1;
+	igriega *= 64;
+	igriega *= control->height;
+	equis *= 64;
+	equis *= control->width;
+	mlx_win = mlx_new_window(mlx, equis, igriega, "Tu super vieja");
 	while (control->map[y])
 	{
 		x = 0;
