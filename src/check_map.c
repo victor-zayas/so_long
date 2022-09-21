@@ -6,7 +6,7 @@
 /*   By: vzayas-s <vzayas-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/16 19:15:42 by vzayas-s          #+#    #+#             */
-/*   Updated: 2022/09/20 12:35:30 by vzayas-s         ###   ########.fr       */
+/*   Updated: 2022/09/21 18:49:37 by vzayas-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,12 @@ static	void	check_map_wall(t_control *control)
 			if (control->map[i][0] != '1')
 			{
 				ft_putstr_fd("Error: the map must be surrounded by walls\n", 2);
-				exit(0);
+				exit(1);
 			}
 			if (control->map[i][control->width - 1] != '1')
 			{
 				ft_putstr_fd("Error: the map must be surrounded by walls\n", 2);
-				exit(0);
+				exit(1);
 			}
 			j++;
 		}
@@ -57,7 +57,7 @@ static	void	check_map_frm(t_control *control)
 	if (control->height == control->width)
 	{
 		ft_putstr_fd("Error: map isn't rectangular\n", 2);
-		exit(0);
+		exit(1);
 	}
 }
 
@@ -93,7 +93,7 @@ void	check_map_format(t_control *control)
 		|| control->name[i - 2] != 'e' || control->name[i - 1] != 'r')
 	{
 		ft_putstr_fd("Error: invalid map format\n", 2);
-		exit(0);
+		exit(1);
 	}
 }
 
@@ -116,7 +116,7 @@ void	check_map(t_control *control)
 			&& control->map[i][j] != '1' && control->map[i][j] != '\n')
 			{
 				ft_putstr_fd("Error: Invalid character in map\n", 2);
-				exit(0);
+				exit(1);
 			}
 			j++;
 		}

@@ -6,7 +6,7 @@
 /*   By: vzayas-s <vzayas-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/16 15:57:19 by vzayas-s          #+#    #+#             */
-/*   Updated: 2022/09/20 19:46:24 by vzayas-s         ###   ########.fr       */
+/*   Updated: 2022/09/21 18:49:00 by vzayas-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,22 @@ static int	file_size(char *path)
 static	char	**split_map(t_control *control)
 {
 	char	*aux;
+	int		i = 0;
 
 	aux = malloc(sizeof(char) * file_size(control->name));
 	read(control->fd, aux, file_size(control->name));
 	aux[file_size(control->name) - 1] = '\0';
+	printf("%s\n", aux);
+	while (aux[i])
+	{
+		if (aux[i] == '\n')
+			if (aux[i + 1] && aux[i + 1] == '\n')
+			{
+				ft_putstr_fd("Error: emptyline in map\n", 2);
+				exit(1);
+			}
+		i++;
+	}
 	control->map = ft_split(aux, '\n');
 	close(control->fd);
 	return (free(aux), control->map);
@@ -57,7 +69,7 @@ int	main(int argc, char **argv)
 		start_strt(&control);
 		control.fd = open(argv[1], O_RDONLY);
 		control.name = argv[1];
-		printf("%s\n", control.name);
+		//printf("%s\n", control.name);
 		check_map_format(&control);
 		check_fd(control.fd);
 		split_map(&control);
@@ -69,6 +81,6 @@ int	main(int argc, char **argv)
 	else
 	{
 		printf("Adios\n");
-		exit(0);
+		exit(1);
 	}
 }

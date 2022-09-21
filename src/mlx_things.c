@@ -6,7 +6,7 @@
 /*   By: vzayas-s <vzayas-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 16:29:10 by vzayas-s          #+#    #+#             */
-/*   Updated: 2022/09/20 20:46:08 by vzayas-s         ###   ########.fr       */
+/*   Updated: 2022/09/21 17:32:03 by vzayas-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,27 +41,27 @@ int	window(t_data *data, t_control *control)
 		{
 			if (control->map[y][x])
 			{
-				data->img = mlx_xpm_file_to_image(mlx, "sprites/mesh3.xpm", &data->width, &data->height);
+				data->img = mlx_xpm_file_to_image(mlx, "sprites/xpm/mesh3.xpm", &data->width, &data->height);
 				mlx_put_image_to_window(mlx, mlx_win, data->img, x * 64, y * 64);
 			}
 			if (control->map[y][x] == '1')
 			{
-				data->img = mlx_xpm_file_to_image(mlx, "sprites/crystal_wall01.xpm", &data->width, &data->height);
+				data->img = mlx_xpm_file_to_image(mlx, "sprites/xpm/crystal_wall01.xpm", &data->width, &data->height);
 				mlx_put_image_to_window(mlx, mlx_win, data->img, x * 64, y * 64);
 			}
 			if (control->map[y][x] == 'P')
 			{
-				data->img = mlx_xpm_file_to_image(mlx, "sprites/merfolk_impaler_water.xpm", &data->width, &data->height);
+				data->img = mlx_xpm_file_to_image(mlx, "sprites/xpm/merfolk_impaler_water.xpm", &data->width, &data->height);
 				mlx_put_image_to_window(mlx, mlx_win, data->img, x * 64, y * 64);
 			}
 			if (control->map[y][x] == 'C')
 			{
-				data->img = mlx_xpm_file_to_image(mlx, "sprites/scroll.xpm", &data->width, &data->height);
+				data->img = mlx_xpm_file_to_image(mlx, "sprites/xpm/scroll.xpm", &data->width, &data->height);
 				mlx_put_image_to_window(mlx, mlx_win, data->img, x * 64, y * 64);
 			}
 			if (control->map[y][x] == 'E')
 			{
-				data->img = mlx_xpm_file_to_image(mlx, "sprites/closed_door.xpm", &data->width, &data->height);
+				data->img = mlx_xpm_file_to_image(mlx, "sprites/xpm/closed_door.xpm", &data->width, &data->height);
 				mlx_put_image_to_window(mlx, mlx_win, data->img, x * 64, y * 64);
 			}
 			x++;
