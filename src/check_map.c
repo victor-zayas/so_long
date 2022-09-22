@@ -6,7 +6,7 @@
 /*   By: vzayas-s <vzayas-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/16 19:15:42 by vzayas-s          #+#    #+#             */
-/*   Updated: 2022/09/22 12:01:08 by vzayas-s         ###   ########.fr       */
+/*   Updated: 2022/09/22 21:28:10 by vzayas-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,13 @@ static	void	check_map_wall(t_control *control)
 		j = 0;
 		while (control->map[i][j])
 		{
-			if (control->map[i][0] != '1')
+			if (control->map[i][j] != '1'
+				&& control->map[control->height - 1][j] != '1')
 			{
 				ft_putstr_fd("Error: the map must be surrounded by walls\n", 2);
 				exit(1);
 			}
-			if (control->map[i][control->width - 1] != '1')
+			else if (control->map[i][control->width - 1] != '1')
 			{
 				ft_putstr_fd("Error: the map must be surrounded by walls\n", 2);
 				exit(1);
@@ -54,7 +55,11 @@ static	void	check_map_frm(t_control *control)
 	}
 	control->height = i;
 	control->width = j;
-	empty(control);
+	if (control->height == 0 && control->width == 0)
+	{
+		ft_putstr_fd("Error: empty map\n", 2);
+		exit(1);
+	}
 	if (control->height == control->width)
 	{
 		ft_putstr_fd("Error: map isn't rectangular\n", 2);

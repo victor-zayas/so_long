@@ -6,7 +6,7 @@
 /*   By: vzayas-s <vzayas-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 16:29:10 by vzayas-s          #+#    #+#             */
-/*   Updated: 2022/09/22 18:25:51 by vzayas-s         ###   ########.fr       */
+/*   Updated: 2022/09/22 21:31:52 by vzayas-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,28 @@ void	save_image(t_all *all)
 			"sprites/xpm/closed_door.xpm", &all->exit.width, &all->exit.height);
 }
 
+void	ft_putimage(t_all *all, int x, int y)
+{
+	mlx_put_image_to_window(all->data.mlx, all->data.win,
+		all->floor.img, x * 64, y * 64);
+	if (all->control.map[y][x] == '1')
+		mlx_put_image_to_window(all->data.mlx, all->data.win,
+			all->wall.img, x * 64, y * 64);
+	else if (all->control.map[y][x] == 'P')
+	{
+		all->hook.p_x = x;
+		all->hook.p_y = y;
+		mlx_put_image_to_window(all->data.mlx, all->data.win,
+			all->plyr.img, x * 64, y * 64);
+	}
+	else if (all->control.map[y][x] == 'C')
+		mlx_put_image_to_window(all->data.mlx, all->data.win,
+			all->cllt.img, x * 64, y * 64);
+	else if (all->control.map[y][x] == 'E')
+		mlx_put_image_to_window(all->data.mlx, all->data.win,
+			all->exit.img, x * 64, y * 64);
+}
+
 void	sprites(t_all *all)
 {
 	int		y;
@@ -39,24 +61,7 @@ void	sprites(t_all *all)
 		x = 0;
 		while (all->control.map[y][x])
 		{
-			mlx_put_image_to_window(all->data.mlx, all->data.win,
-				all->floor.img, x * 64, y * 64);
-			if (all->control.map[y][x] == '1')
-				mlx_put_image_to_window(all->data.mlx, all->data.win,
-					all->wall.img, x * 64, y * 64);
-			else if (all->control.map[y][x] == 'P')
-			{
-				all->hook.p_x = x;
-				all->hook.p_y = y;
-				mlx_put_image_to_window(all->data.mlx, all->data.win,
-					all->plyr.img, x * 64, y * 64);
-			}
-			else if (all->control.map[y][x] == 'C')
-				mlx_put_image_to_window(all->data.mlx, all->data.win,
-					all->cllt.img, x * 64, y * 64);
-			else if (all->control.map[y][x] == 'E')
-				mlx_put_image_to_window(all->data.mlx, all->data.win,
-					all->exit.img, x * 64, y * 64);
+			ft_putimage(all, x, y);
 			x++;
 		}
 		y++;

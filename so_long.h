@@ -6,7 +6,7 @@
 /*   By: vzayas-s <vzayas-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/16 16:04:28 by vzayas-s          #+#    #+#             */
-/*   Updated: 2022/09/22 18:27:05 by vzayas-s         ###   ########.fr       */
+/*   Updated: 2022/09/22 21:32:25 by vzayas-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,7 +122,6 @@ void	check_map_format(t_control *control);
 void	check_fd(int fd);
 void	check_map(t_control *control);
 void	type_error(t_control *s_control);
-void	empty(t_control *control);
 int		print_struct(t_control *map);
 
 //MLX//
@@ -132,5 +131,5 @@ int		key_hook(int keycode, t_all *all);
 int		check_collects(t_all *all);
 void	its_finished(t_all *all);
 void	close_win(t_all *all);
-
+void	ft_putimage(t_all *all, int x, int y);
 #endif

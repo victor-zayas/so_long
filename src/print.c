@@ -6,7 +6,7 @@
 /*   By: vzayas-s <vzayas-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 16:50:21 by vzayas-s          #+#    #+#             */
-/*   Updated: 2022/09/19 11:56:44 by vzayas-s         ###   ########.fr       */
+/*   Updated: 2022/09/22 21:34:26 by vzayas-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int	print_struct(t_control *control)
 		printf("%s\n", control->map[i]);
 		i++;
 	}
-	printf("Player:(%d), Collectable:(%d), Exit:(%d)\n", control->p, control->c, control->e);
+	printf("Player:(%d), Collectable:(%d), Exit:(%d)\n",
+		control->p, control->c, control->e);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: vzayas-s <vzayas-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 11:09:04 by vzayas-s          #+#    #+#             */
-/*   Updated: 2022/09/22 12:01:30 by vzayas-s         ###   ########.fr       */
+/*   Updated: 2022/09/22 21:09:04 by vzayas-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,15 +42,6 @@ static	void	check_error(t_control *control)
 	if (control->error == 4)
 	{
 		ft_putstr_fd("Error: invalid map\n", 2);
-		exit(1);
-	}
-}
-
-void	empty(t_control *control)
-{
-	if (control->height == 0 && control->width == 0)
-	{
-		ft_putstr_fd("Error: empty map\n", 2);
 		exit(1);
 	}
 }
