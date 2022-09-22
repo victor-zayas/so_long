@@ -6,7 +6,7 @@
 /*   By: vzayas-s <vzayas-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/16 16:04:28 by vzayas-s          #+#    #+#             */
-/*   Updated: 2022/09/22 17:01:44 by vzayas-s         ###   ########.fr       */
+/*   Updated: 2022/09/22 18:27:05 by vzayas-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,11 +129,8 @@ int		print_struct(t_control *map);
 void	save_image(t_all *all);
 void	sprites(t_all *all);
 int		key_hook(int keycode, t_all *all);
-void	close_win(t_all *all);
-int		vertical_mv(int keycode, t_all *all, int x, int y);
-int		horizontal_mv(int keycode, t_all *all, int x, int y);
-int		movement(t_all *all, int x, int y);
-void	its_finished(t_all *all);
 int		check_collects(t_all *all);
+void	its_finished(t_all *all);
+void	close_win(t_all *all);
 
 #endif

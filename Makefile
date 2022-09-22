@@ -6,7 +6,7 @@
 #    By: vzayas-s <vzayas-s@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/16 15:59:46 by vzayas-s          #+#    #+#              #
-#    Updated: 2022/09/22 15:13:14 by vzayas-s         ###   ########.fr        #
+#    Updated: 2022/09/22 18:28:26 by vzayas-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,9 @@ SRCS = so_long.c			\
 	   src/check_map.c		\
 	   src/check_error.c	\
 	   src/print.c			\
-	   src/mlx_things.c		\
+	   src/movement.c		\
+	   src/sprites.c		\
+	   src/close.c			\
 	   libft/split.c		\
 	   libft/substr.c		\
 	   libft/strlen.c		\
