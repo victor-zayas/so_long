@@ -6,7 +6,7 @@
 /*   By: vzayas-s <vzayas-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/16 19:15:42 by vzayas-s          #+#    #+#             */
-/*   Updated: 2022/09/21 18:49:37 by vzayas-s         ###   ########.fr       */
+/*   Updated: 2022/09/22 05:48:48 by vzayas-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,7 @@ void	check_map(t_control *control)
 	check_map_frm(control);
 	check_map_wall(control);
 	check_map_atrb(control);
+	type_error(control);
 	i = 0;
 	while (control->map[i])
 	{

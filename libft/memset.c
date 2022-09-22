@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   start_struct.c                                     :+:      :+:    :+:   */
+/*   memset.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vzayas-s <vzayas-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/17 12:10:30 by vzayas-s          #+#    #+#             */
-/*   Updated: 2022/09/17 19:33:41 by vzayas-s         ###   ########.fr       */
+/*   Created: 2022/09/22 04:57:00 by vzayas-s          #+#    #+#             */
+/*   Updated: 2022/09/22 04:57:12 by vzayas-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include"../so_long.h"
 
-int	start_strt(t_control *control)
+void	*ft_memset(void *str, int c, size_t len)
 {
-	control->width = 0;
-	control->height = 0;
-	control->error = 0;
-	control->p = 0;
-	control->c = 0;
-	control->e = 0;
-	return (0);
+	size_t	i;
+
+	i = 0;
+	while (i < len)
+	{
+		((unsigned char *)str)[i] = (unsigned char)c;
+		i++;
+	}
+	return ((unsigned char *)str);
 }

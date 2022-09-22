@@ -6,7 +6,7 @@
 /*   By: vzayas-s <vzayas-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 11:09:04 by vzayas-s          #+#    #+#             */
-/*   Updated: 2022/09/21 18:49:15 by vzayas-s         ###   ########.fr       */
+/*   Updated: 2022/09/22 05:26:18 by vzayas-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void	check_fd(int fd)
 {
 	if (fd < 0 || fd == 2)
 	{
-		printf("%d\n", fd);
 		close(fd);
 		ft_putstr_fd("Error: Invalid fd\n", 2);
 		exit(1);

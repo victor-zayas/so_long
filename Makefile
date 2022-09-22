@@ -6,7 +6,7 @@
 #    By: vzayas-s <vzayas-s@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/16 15:59:46 by vzayas-s          #+#    #+#              #
-#    Updated: 2022/09/20 19:48:46 by vzayas-s         ###   ########.fr        #
+#    Updated: 2022/09/22 05:16:56 by vzayas-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,6 @@ INCLUDE = -I so_long.h
 
 # SRCS #
 SRCS = so_long.c			\
-	   src/start_struct.c	\
 	   src/check_map.c		\
 	   src/check_error.c	\
 	   src/print.c			\
@@ -36,6 +35,7 @@ SRCS = so_long.c			\
 	   libft/substr.c		\
 	   libft/strlen.c		\
 	   libft/putstr_fd.c	\
+	   libft/memset.c		\
 
 # MAKEFILE ART #
 # COLORS #

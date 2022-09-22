@@ -6,7 +6,7 @@
 /*   By: vzayas-s <vzayas-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/16 15:57:19 by vzayas-s          #+#    #+#             */
-/*   Updated: 2022/09/21 18:49:00 by vzayas-s         ###   ########.fr       */
+/*   Updated: 2022/09/22 05:49:25 by vzayas-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,20 +38,22 @@ static int	file_size(char *path)
 static	char	**split_map(t_control *control)
 {
 	char	*aux;
-	int		i = 0;
+	int		i;
 
+	i = 0;
 	aux = malloc(sizeof(char) * file_size(control->name));
 	read(control->fd, aux, file_size(control->name));
 	aux[file_size(control->name) - 1] = '\0';
-	printf("%s\n", aux);
 	while (aux[i])
 	{
 		if (aux[i] == '\n')
+		{
 			if (aux[i + 1] && aux[i + 1] == '\n')
 			{
 				ft_putstr_fd("Error: emptyline in map\n", 2);
 				exit(1);
 			}
+		}
 		i++;
 	}
 	control->map = ft_split(aux, '\n');
@@ -61,26 +63,22 @@ static	char	**split_map(t_control *control)
 
 int	main(int argc, char **argv)
 {
-	t_control	control;
-	t_data		data;
+	t_all		all;
 
 	if (argc == 2)
 	{
-		start_strt(&control);
-		control.fd = open(argv[1], O_RDONLY);
-		control.name = argv[1];
-		//printf("%s\n", control.name);
-		check_map_format(&control);
-		check_fd(control.fd);
-		split_map(&control);
-		check_map(&control);
-		type_error(&control);
-		window(&data, &control);
-		print_struct(&control);
+		ft_memset(&all, 0, sizeof(all));
+		all.control.fd = open(argv[1], O_RDONLY);
+		all.control.name = argv[1];
+		check_fd(all.control.fd);
+		check_map_format(&all.control);
+		split_map(&all.control);
+		check_map(&all.control);
+		window(&all);
 	}
 	else
 	{
-		printf("Adios\n");
+		ft_putstr_fd("Error: invalid number of arguments\n", 2);
 		exit(1);
 	}
 }
