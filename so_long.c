@@ -6,7 +6,7 @@
 /*   By: vzayas-s <vzayas-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/16 15:57:19 by vzayas-s          #+#    #+#             */
-/*   Updated: 2022/09/22 05:49:25 by vzayas-s         ###   ########.fr       */
+/*   Updated: 2022/09/22 11:35:55 by vzayas-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,14 @@ int	main(int argc, char **argv)
 		check_map_format(&all.control);
 		split_map(&all.control);
 		check_map(&all.control);
-		window(&all);
+		all.data.mlx = mlx_init();
+		all.data.win = mlx_new_window(all.data.mlx,
+				all.control.width * 64, all.control.height * 64, "so_long");
+		save_image(&all);
+		sprites(&all);
+		mlx_key_hook(all.data.win, key_hook, &all);
+		close_win(&all);
+		mlx_loop(all.data.mlx);
 	}
 	else
 	{

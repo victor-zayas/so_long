@@ -6,7 +6,7 @@
 /*   By: vzayas-s <vzayas-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/16 16:04:28 by vzayas-s          #+#    #+#             */
-/*   Updated: 2022/09/22 05:17:03 by vzayas-s         ###   ########.fr       */
+/*   Updated: 2022/09/22 17:01:44 by vzayas-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,11 +89,20 @@ typedef struct s_exit
 	int		width;
 }	t_exit;
 
+typedef struct count
+{
+	int	c;
+	int	p;
+	int	e;
+	int	p_p;
+}	t_count;
+
 typedef struct s_all
 {
 	t_control	control;
 	t_data		data;
 	t_hook		hook;
+	t_count		count;
 	t_floor		floor;
 	t_wall		wall;
 	t_cllt		cllt;
@@ -113,10 +122,18 @@ void	check_map_format(t_control *control);
 void	check_fd(int fd);
 void	check_map(t_control *control);
 void	type_error(t_control *s_control);
+void	empty(t_control *control);
 int		print_struct(t_control *map);
 
 //MLX//
-int		window(t_all *all);
+void	save_image(t_all *all);
+void	sprites(t_all *all);
 int		key_hook(int keycode, t_all *all);
+void	close_win(t_all *all);
+int		vertical_mv(int keycode, t_all *all, int x, int y);
+int		horizontal_mv(int keycode, t_all *all, int x, int y);
+int		movement(t_all *all, int x, int y);
+void	its_finished(t_all *all);
+int		check_collects(t_all *all);
 
 #endif

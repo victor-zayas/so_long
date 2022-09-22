@@ -6,7 +6,7 @@
 #    By: vzayas-s <vzayas-s@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/16 15:59:46 by vzayas-s          #+#    #+#              #
-#    Updated: 2022/09/22 05:16:56 by vzayas-s         ###   ########.fr        #
+#    Updated: 2022/09/22 15:13:14 by vzayas-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME = so_long
 
 # COMPILATION #
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -g3 -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -g3 #$-fsanitize=address
 MLX = -framework OpenGL -framework AppKit
 RM = /bin/rm -rf
 

@@ -6,7 +6,7 @@
 /*   By: vzayas-s <vzayas-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/16 19:15:42 by vzayas-s          #+#    #+#             */
-/*   Updated: 2022/09/22 05:48:48 by vzayas-s         ###   ########.fr       */
+/*   Updated: 2022/09/22 12:01:08 by vzayas-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ static	void	check_map_frm(t_control *control)
 	}
 	control->height = i;
 	control->width = j;
+	empty(control);
 	if (control->height == control->width)
 	{
 		ft_putstr_fd("Error: map isn't rectangular\n", 2);
