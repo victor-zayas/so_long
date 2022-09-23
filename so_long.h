@@ -6,7 +6,7 @@
 /*   By: vzayas-s <vzayas-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/16 16:04:28 by vzayas-s          #+#    #+#             */
-/*   Updated: 2022/09/22 21:32:25 by vzayas-s         ###   ########.fr       */
+/*   Updated: 2022/09/23 12:54:09 by vzayas-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,7 @@ typedef struct count
 	int	p;
 	int	e;
 	int	p_p;
+	int	mv;
 }	t_count;
 
 typedef struct s_all
@@ -116,6 +117,8 @@ char	**ft_split(char const *s, char c);
 char	*ft_substr(char const *s, int start, int len);
 void	ft_putstr_fd(char *s, int fd);
 void	*ft_memset(void *str, int c, size_t len);
+char	*ft_itoa(int n);
+void	ft_putchar_fd(char c, int fd);
 
 //SO_LONG//
 void	check_map_format(t_control *control);

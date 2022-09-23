@@ -6,7 +6,7 @@
 /*   By: vzayas-s <vzayas-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 18:22:05 by vzayas-s          #+#    #+#             */
-/*   Updated: 2022/09/22 18:30:55 by vzayas-s         ###   ########.fr       */
+/*   Updated: 2022/09/23 12:54:40 by vzayas-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,13 @@ static	int	movement(t_all *all, int x, int y)
 		all->count.c++;
 	}
 	if (all->control.map[y][x] == '0' || all->control.map[y][x] == 'C')
+	{
 		all->control.map[y][x] = 'P';
+		all->count.mv++;
+		ft_putstr_fd("Steps: ", 1);
+		ft_putstr_fd(ft_itoa(all->count.mv), 1);
+		ft_putchar_fd('\n', 1);
+	}
 	if (all->control.map[y][x] == 'E' && check_cllt(all) == 1)
 		its_finished(all);
 	return (1);

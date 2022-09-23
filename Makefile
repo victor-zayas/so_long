@@ -6,7 +6,7 @@
 #    By: vzayas-s <vzayas-s@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/16 15:59:46 by vzayas-s          #+#    #+#              #
-#    Updated: 2022/09/22 18:28:26 by vzayas-s         ###   ########.fr        #
+#    Updated: 2022/09/23 12:54:24 by vzayas-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,9 @@ SRCS = so_long.c			\
 	   libft/substr.c		\
 	   libft/strlen.c		\
 	   libft/putstr_fd.c	\
+	   libft/putchar_fd.c	\
 	   libft/memset.c		\
+	   libft/itoa.c			\
 
 # MAKEFILE ART #
 # COLORS #
