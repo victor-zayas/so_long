@@ -6,7 +6,7 @@
 /*   By: vzayas-s <vzayas-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 16:29:10 by vzayas-s          #+#    #+#             */
-/*   Updated: 2022/09/23 13:37:07 by vzayas-s         ###   ########.fr       */
+/*   Updated: 2022/09/27 13:44:12 by vzayas-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,17 @@
 void	save_image(t_all *all)
 {
 	all->floor.img = mlx_xpm_file_to_image(all->data.mlx,
-			"sprites/xpm/lair0.xpm", &all->floor.width, &all->floor.height);
+			"sprites/xpm/mesh3.xpm", &all->floor.width, &all->floor.height);
 	all->wall.img = mlx_xpm_file_to_image(all->data.mlx,
-			"sprites/xpm/tree2_red.xpm",
+			"sprites/xpm/crystal_wall01.xpm",
 			&all->wall.width, &all->wall.height);
 	all->plyr.img = mlx_xpm_file_to_image(all->data.mlx,
-			"sprites/xpm/wandering_mushroom.xpm",
+			"sprites/xpm/merfolk_impaler_water.xpm",
 			&all->plyr.width, &all->plyr.height);
 	all->cllt.img = mlx_xpm_file_to_image(all->data.mlx,
-			"sprites/xpm/choko.xpm", &all->cllt.width, &all->cllt.height);
+			"sprites/xpm/scroll.xpm", &all->cllt.width, &all->cllt.height);
 	all->exit.img = mlx_xpm_file_to_image(all->data.mlx,
-			"sprites/xpm/exit.xpm", &all->exit.width, &all->exit.height);
+			"sprites/xpm/closed_door.xpm", &all->exit.width, &all->exit.height);
 }
 
 void	ft_putimage(t_all *all, int x, int y)
