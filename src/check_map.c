@@ -6,7 +6,7 @@
 /*   By: vzayas-s <vzayas-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/16 19:15:42 by vzayas-s          #+#    #+#             */
-/*   Updated: 2022/09/22 21:28:10 by vzayas-s         ###   ########.fr       */
+/*   Updated: 2022/09/27 14:45:55 by vzayas-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ static	void	check_map_wall(t_control *control)
 				ft_putstr_fd("Error: the map must be surrounded by walls\n", 2);
 				exit(1);
 			}
-			else if (control->map[i][control->width - 1] != '1')
+			else if (control->map[i][control->width - 1] != '1' ||
+				control->map[i][0] != '1')
 			{
 				ft_putstr_fd("Error: the map must be surrounded by walls\n", 2);
 				exit(1);
