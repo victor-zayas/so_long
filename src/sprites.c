@@ -26,6 +26,11 @@ void	save_image(t_all *all)
 			"sprites/xpm/scroll.xpm", &all->cllt.width, &all->cllt.height);
 	all->exit.img = mlx_xpm_file_to_image(all->data.mlx,
 			"sprites/xpm/closed_door.xpm", &all->exit.width, &all->exit.height);
+	if (!all->floor.img || !all->wall.img || !all->plyr.img || !all->cllt.img || !all->exit.img)
+	{
+		ft_putstr_fd("Error: image isn't in .xpm format\n", 2);
+		exit(1);
+	}
 }
 
 void	ft_putimage(t_all *all, int x, int y)
